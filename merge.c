@@ -1,0 +1,81 @@
+#include<stdio.h>
+void main()
+{
+	int a[5],b[7],c[12],i,j,k,temp;
+	printf("enter the element of first array");
+	printf("\n");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("\n");
+	printf("enter the element of second array");
+	printf("\n");
+	for(i=0;i<7;i++)
+	{
+		scanf("%d",&b[i]);
+	}
+	for(i=0;i<5;i++)
+	{
+	  for(j=i+1;j<5;j++)
+		{
+			if(a[i]>a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	for(i=0;i<7;i++)
+	{
+	  for(j=i+1;j<7;j++)
+		{
+			if(b[i]>b[j])
+			{
+				temp=b[i];
+				b[i]=b[j];
+				b[j]=temp;
+			}
+		}
+	}
+	printf("your first sorted array is:\n");
+	for(i=0;i<5;i++)
+	{
+		printf("%d\t",a[i]);
+	}
+	printf("\n");
+	printf("your second sorted array is:\n");\
+	for(i=0;i<7;i++)
+	{
+		printf("%d\t",b[i]);
+	}
+	for(i=0,k=0,j=0;i<12;i++)
+	{
+	   if(a[k]<b[j])
+	   {
+	   	c[i]=a[k];
+	   	k++;
+	   	if(k>=5)
+	   	{
+	   		for(i++;j<7;j++,i++)
+	   		c[i]=b[j];
+		   }
+	   }
+	   else
+	   {
+	   	c[i]=b[j];
+	   	j++;
+	   	if(j>=7)
+	   	{
+	   		for(i++;k<5;k++,i++)
+	   		c[i]=a[k];
+		   }
+	   }
+	}
+	printf("your output is :");
+	for(i=0;i<12;i++)
+	{
+		printf("%d\t",c[i]);
+	}
+}
